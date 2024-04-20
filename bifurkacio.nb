@@ -1,0 +1,423 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16290,        415]
+NotebookOptionsPosition[     15049,        387]
+NotebookOutlinePosition[     15520,        405]
+CellTagsIndexPosition[     15477,        402]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Bifurk\[AAcute]ci\[OAcute]s diagram", "Section",
+ CellChangeTimes->{{3.922423943948175*^9, 3.9224239502853756`*^9}, {
+  3.9224392479009085`*^9, 3.9224392492043977`*^9}, {3.9226170358870463`*^9, 
+  3.922617036103017*^9}},ExpressionUUID->"70d71017-e7e2-4994-a725-\
+9b927c4fd38f"],
+
+Cell["param\[EAcute]terek:", "Text",
+ CellChangeTimes->{{3.9184435678740845`*^9, 3.918443572232627*^9}, {
+  3.9224393030985327`*^9, 
+  3.9224393035570965`*^9}},ExpressionUUID->"4be204e7-4c2d-42b8-b7c3-\
+922340981425"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"rt", "=", "1.71"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Kt", "=", "1.61"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Delta]", "=", "3.59"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Mu]", "=", "1.78"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Lambda]", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rb", "=", "1.81"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Kb", "=", "1.81"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Theta]", "=", "1.085"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Sigma]", "=", "0.7"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.91844359082627*^9, 3.9184436014650345`*^9}, {
+  3.918443666119943*^9, 3.91844366844553*^9}, {3.9184437176753993`*^9, 
+  3.9184438338546305`*^9}, {3.918443985548992*^9, 3.918443991800475*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"7c6662ee-8dde-438a-9f7c-91ac42a0d3c5"],
+
+Cell["k\[UDoubleDot]sz\[ODoubleDot]bparam\[EAcute]terek:", "Text",
+ CellChangeTimes->{{3.9184447434462256`*^9, 3.918444749668281*^9}, {
+  3.9224393082131505`*^9, 
+  3.922439313884945*^9}},ExpressionUUID->"b4f98676-2fa7-4d48-983e-\
+95b88f52dda6"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"F1", "=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"Kb", "*", "\[Sigma]", "*", "rb"}], "\[Theta]"], "-", 
+    "\[Alpha]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F2", "=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"Kt", "*", "\[Mu]", "*", "rt"}], "\[Delta]"], "-", 
+    "\[Gamma]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F3", "=", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"Kt", "*", 
+      RowBox[{"(", 
+       RowBox[{"\[Mu]", "+", 
+        RowBox[{"\[Lambda]", 
+         RowBox[{"(", 
+          RowBox[{"Kb", "-", 
+           FractionBox[
+            RowBox[{"\[Theta]", "*", "\[Alpha]"}], 
+            RowBox[{"(", 
+             RowBox[{"\[Sigma]", "*", "rb"}], ")"}]]}], ")"}]}]}], ")"}], "*",
+       "rt"}], "\[Delta]"], "-", "\[Gamma]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.9184442977598763`*^9, 3.918444334134452*^9}, {
+  3.918444753348251*^9, 3.918444769526018*^9}, {3.9184478292116117`*^9, 
+  3.9184479160704603`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"f66c7db2-a2a1-47d5-9fa1-857b3f277b74"],
+
+Cell["egyens\[UAcute]lyi helyzetek:", "Text",
+ CellChangeTimes->{{3.9184447832381363`*^9, 3.9184447893726916`*^9}, {
+  3.9224393170403137`*^9, 
+  3.922439317467452*^9}},ExpressionUUID->"5fc98e49-077a-4cad-a361-\
+0944187cef0d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"B1", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"B2", "=", 
+   RowBox[{"Kb", "-", 
+    FractionBox[
+     RowBox[{"\[Theta]", "*", "\[Alpha]"}], 
+     RowBox[{"(", 
+      RowBox[{"\[Sigma]", "*", "rb"}], ")"}]]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T1", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T21", "=", 
+   RowBox[{"Kt", "-", 
+    FractionBox[
+     RowBox[{"\[Delta]", "*", "\[Gamma]"}], 
+     RowBox[{"(", 
+      RowBox[{"\[Mu]", "*", "rt"}], ")"}]]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T22", "=", 
+   RowBox[{"Kt", "-", 
+    FractionBox[
+     RowBox[{"\[Delta]", "*", "\[Gamma]"}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"\[Mu]", "+", 
+         RowBox[{"\[Lambda]", 
+          RowBox[{"(", 
+           RowBox[{"Kb", "-", 
+            FractionBox[
+             RowBox[{"\[Theta]", "*", "\[Alpha]"}], 
+             RowBox[{"\[Sigma]", "*", "rb"}]]}], ")"}]}]}], ")"}], "*", 
+       "rt"}], ")"}]]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.918444793195313*^9, 3.9184449694305573`*^9}, {
+  3.9184450071462746`*^9, 3.918445075417573*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"0ffcfc8c-614d-48c3-ae98-1df2dfa37497"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"F1", "=", 
+     RowBox[{
+      RowBox[{"Kb", "*", "\[Sigma]", "*", 
+       RowBox[{"rb", "/", "\[Theta]"}]}], "-", "\[Alpha]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"F2", "=", 
+     RowBox[{
+      RowBox[{"Kt", "*", "\[Mu]", "*", 
+       RowBox[{"rt", "/", "\[Delta]"}]}], "-", "\[Gamma]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"F3", "=", 
+     RowBox[{
+      RowBox[{"Kt", "*", 
+       RowBox[{"(", 
+        RowBox[{"\[Mu]", "+", 
+         RowBox[{"\[Lambda]", 
+          RowBox[{"(", 
+           RowBox[{"Kb", "-", 
+            RowBox[{"\[Theta]", "*", 
+             RowBox[{"\[Alpha]", "/", 
+              RowBox[{"(", 
+               RowBox[{"\[Sigma]", "*", "rb"}], ")"}]}]}]}], ")"}]}]}], ")"}],
+        "*", 
+       RowBox[{"rt", "/", "\[Delta]"}]}], "-", "\[Gamma]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"B1", "=", "0"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"B2", "=", 
+     RowBox[{"Kb", "-", 
+      FractionBox[
+       RowBox[{"\[Theta]", "*", "\[Alpha]"}], 
+       RowBox[{"(", 
+        RowBox[{"\[Sigma]", "*", "rb"}], ")"}]]}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"T1", "=", "0"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"T21", "=", 
+     RowBox[{"Kt", "-", 
+      FractionBox[
+       RowBox[{"\[Delta]", "*", "\[Gamma]"}], 
+       RowBox[{"(", 
+        RowBox[{"\[Mu]", "*", "rt"}], ")"}]]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"T22", "=", 
+     RowBox[{"Kt", "-", 
+      FractionBox[
+       RowBox[{"\[Delta]", "*", "\[Gamma]"}], 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"\[Mu]", "+", 
+           RowBox[{"\[Lambda]", 
+            RowBox[{"(", 
+             RowBox[{"Kb", "-", 
+              FractionBox[
+               RowBox[{"\[Theta]", "*", "\[Alpha]"}], 
+               RowBox[{"\[Sigma]", "*", "rb"}]]}], ")"}]}]}], ")"}], "*", 
+         "rt"}], ")"}]]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Row", "[", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ParametricPlot", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"B1", ",", "T1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"B1", ",", "T21"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"B2", ",", "T1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"B2", ",", "T22"}], "}"}]}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"\[Alpha]", ",", "\[Alpha]min", ",", "\[Alpha]max"}], "}"}],
+          ",", "\[IndentingNewLine]", 
+         RowBox[{"AxesLabel", "->", 
+          RowBox[{"{", 
+           RowBox[{"\"\<B\>\"", ",", " ", "\"\<T\>\""}], "}"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"PlotStyle", "->", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Red", ",", " ", "Thick"}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"PlotRange", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "5"}], ",", "5"}], "}"}]}], "}"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"AspectRatio", "->", "1"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"ImageSize", "->", "Medium"}]}], "\[IndentingNewLine]", 
+        "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Column", "[", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<F1 = \>\"", " ", ",", 
+            RowBox[{"ToString", "[", "F1", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<F2 = \>\"", " ", ",", 
+            RowBox[{"ToString", "[", "F2", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<F3 = \>\"", " ", ",", 
+            RowBox[{"ToString", "[", "F3", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<B1 = \>\"", " ", ",", 
+            RowBox[{"ToString", "[", "B1", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<B2 = \>\"", " ", ",", 
+            RowBox[{"ToString", "[", "B2", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<T1 = \>\"", " ", ",", 
+            RowBox[{"ToString", "[", "T1", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<T21 = \>\"", " ", ",", 
+            RowBox[{"ToString", "[", "T21", "]"}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<T22 = \>\"", " ", ",", 
+            RowBox[{"ToString", "[", "T22", "]"}]}], "]"}]}], 
+         "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+     "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", "0.8"}], "}"}], ",", "0", ",", "5"}], "}"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Alpha]min", ",", "0"}], "}"}], ",", "0", ",", "5"}], "}"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Alpha]max", ",", "3"}], "}"}], ",", "0", ",", "10"}], 
+    "}"}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.9224394627278624`*^9, 3.922439472690833*^9}, {
+  3.922439554259157*^9, 3.922439576823003*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"2f3bb84d-573d-4825-8faa-9f4cc0582ae0"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Alpha]max$$ = 
+    3, $CellContext`\[Alpha]min$$ = 0, $CellContext`\[Gamma]$$ = 0.8, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Gamma]$$], 0.8}, 0, 5}, {{
+       Hold[$CellContext`\[Alpha]min$$], 0}, 0, 5}, {{
+       Hold[$CellContext`\[Alpha]max$$], 3}, 0, 10}}, Typeset`size$$ = {
+    727., {179., 183.79999999999995`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`\[Alpha]max$$ = 
+        3, $CellContext`\[Alpha]min$$ = 0, $CellContext`\[Gamma]$$ = 0.8}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`F1 = $CellContext`Kb $CellContext`\[Sigma] \
+($CellContext`rb/$CellContext`\[Theta]) - $CellContext`\[Alpha]; \
+$CellContext`F2 = $CellContext`Kt $CellContext`\[Mu] \
+($CellContext`rt/$CellContext`\[Delta]) - $CellContext`\[Gamma]$$; \
+$CellContext`F3 = $CellContext`Kt ($CellContext`\[Mu] + \
+$CellContext`\[Lambda] ($CellContext`Kb - $CellContext`\[Theta] \
+($CellContext`\[Alpha]/($CellContext`\[Sigma] $CellContext`rb)))) \
+($CellContext`rt/$CellContext`\[Delta]) - $CellContext`\[Gamma]$$; \
+$CellContext`B1 = 
+        0; $CellContext`B2 = $CellContext`Kb - $CellContext`\[Theta] \
+$CellContext`\[Alpha]/($CellContext`\[Sigma] $CellContext`rb); \
+$CellContext`T1 = 
+        0; $CellContext`T21 = $CellContext`Kt - $CellContext`\[Delta] \
+$CellContext`\[Gamma]$$/($CellContext`\[Mu] $CellContext`rt); \
+$CellContext`T22 = $CellContext`Kt - $CellContext`\[Delta] $CellContext`\
+\[Gamma]$$/(($CellContext`\[Mu] + $CellContext`\[Lambda] ($CellContext`Kb - \
+$CellContext`\[Theta] $CellContext`\[Alpha]/($CellContext`\[Sigma] \
+$CellContext`rb))) $CellContext`rt); Row[{
+          
+          ParametricPlot[{{$CellContext`B1, $CellContext`T1}, \
+{$CellContext`B1, $CellContext`T21}, {$CellContext`B2, $CellContext`T1}, \
+{$CellContext`B2, $CellContext`T22}}, {$CellContext`\[Alpha], $CellContext`\
+\[Alpha]min$$, $CellContext`\[Alpha]max$$}, AxesLabel -> {"B", "T"}, 
+           PlotStyle -> Directive[Red, Thick], 
+           PlotRange -> {{-5, 5}, {-5, 5}}, AspectRatio -> 1, ImageSize -> 
+           Medium], 
+          Column[{
+            StringJoin["F1 = ", 
+             ToString[$CellContext`F1]], 
+            StringJoin["F2 = ", 
+             ToString[$CellContext`F2]], 
+            StringJoin["F3 = ", 
+             ToString[$CellContext`F3]], 
+            StringJoin["B1 = ", 
+             ToString[$CellContext`B1]], 
+            StringJoin["B2 = ", 
+             ToString[$CellContext`B2]], 
+            StringJoin["T1 = ", 
+             ToString[$CellContext`T1]], 
+            StringJoin["T21 = ", 
+             ToString[$CellContext`T21]], 
+            StringJoin["T22 = ", 
+             ToString[$CellContext`T22]]}]}]), 
+      "Specifications" :> {{{$CellContext`\[Gamma]$$, 0.8}, 0, 
+         5}, {{$CellContext`\[Alpha]min$$, 0}, 0, 
+         5}, {{$CellContext`\[Alpha]max$$, 3}, 0, 10}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{775., {244., 250.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.92243947396712*^9, {3.9224395499400744`*^9, 3.9224395786719766`*^9}, 
+   3.922616897886213*^9},
+ CellLabel->"Out[18]=",ExpressionUUID->"5bf1b0cb-f465-4313-9cda-07549943a18c"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1152., 585.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+Magnification:>0.9 Inherited,
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"630b5bfc-3c2e-44da-8414-c1ec169d3256"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 283, 4, 59, "Section",ExpressionUUID->"70d71017-e7e2-4994-a725-9b927c4fd38f"],
+Cell[866, 28, 217, 4, 31, "Text",ExpressionUUID->"4be204e7-4c2d-42b8-b7c3-922340981425"],
+Cell[1086, 34, 966, 22, 164, "Input",ExpressionUUID->"7c6662ee-8dde-438a-9f7c-91ac42a0d3c5"],
+Cell[2055, 58, 245, 4, 31, "Text",ExpressionUUID->"b4f98676-2fa7-4d48-983e-95b88f52dda6"],
+Cell[2303, 64, 1087, 31, 129, "Input",ExpressionUUID->"f66c7db2-a2a1-47d5-9fa1-857b3f277b74"],
+Cell[3393, 97, 226, 4, 31, "Text",ExpressionUUID->"5fc98e49-077a-4cad-a361-0944187cef0d"],
+Cell[3622, 103, 1273, 38, 168, "Input",ExpressionUUID->"0ffcfc8c-614d-48c3-ae98-1df2dfa37497"],
+Cell[CellGroupData[{
+Cell[4920, 145, 5916, 152, 688, "Input",ExpressionUUID->"2f3bb84d-573d-4825-8faa-9f4cc0582ae0"],
+Cell[10839, 299, 4182, 84, 461, "Output",ExpressionUUID->"5bf1b0cb-f465-4313-9cda-07549943a18c"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

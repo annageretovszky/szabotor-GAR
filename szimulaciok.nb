@@ -1,0 +1,1414 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     61812,       1406]
+NotebookOptionsPosition[     60771,       1377]
+NotebookOutlinePosition[     61242,       1395]
+CellTagsIndexPosition[     61199,       1392]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Eredeti egyenletrendszer", "Section",
+ CellChangeTimes->{
+  3.9228001362212043`*^9, {3.922800408663227*^9, 
+   3.9228004166611757`*^9}},ExpressionUUID->"7fbb8464-b89a-477d-9203-\
+1b57b1d92ad7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"sol", "=", 
+     RowBox[{"NDSolve", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"T", "'"}], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"Which", "[", 
+           RowBox[{
+            RowBox[{"t", "<", "t0T"}], ",", "0", ",", 
+            RowBox[{"t", "\[GreaterEqual]", "t0T"}], ",", 
+            RowBox[{
+             RowBox[{"rt", "*", 
+              RowBox[{"T", "[", "t", "]"}], "*", 
+              RowBox[{"(", 
+               RowBox[{"Kt", "-", 
+                RowBox[{"T", "[", "t", "]"}]}], ")"}]}], "-", 
+             RowBox[{"\[Delta]", "*", 
+              RowBox[{"T", "[", "t", "]"}], "*", 
+              RowBox[{"c", "[", "t", "]"}]}]}]}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"c", "'"}], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"Which", "[", 
+           RowBox[{
+            RowBox[{"t", "<", "t0C"}], ",", "0", ",", 
+            RowBox[{"t", "\[GreaterEqual]", "t0C"}], ",", 
+            RowBox[{"\[Gamma]", "-", 
+             RowBox[{"\[Mu]", "*", 
+              RowBox[{"c", "[", "t", "]"}]}], "-", 
+             RowBox[{"\[Lambda]", "*", 
+              RowBox[{"c", "[", "t", "]"}], "*", 
+              RowBox[{"b", "[", "t", "]"}]}]}]}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"b", "'"}], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"Which", "[", 
+           RowBox[{
+            RowBox[{"t", "<", "t0B"}], ",", "0", ",", 
+            RowBox[{"t", "\[GreaterEqual]", "t0B"}], ",", 
+            RowBox[{
+             RowBox[{"rb", "*", 
+              RowBox[{"b", "[", "t", "]"}], "*", 
+              RowBox[{"(", 
+               RowBox[{"Kb", "-", 
+                RowBox[{"b", "[", "t", "]"}]}], ")"}]}], "-", 
+             RowBox[{"\[Theta]", "*", 
+              RowBox[{"b", "[", "t", "]"}], "*", 
+              RowBox[{"a", "[", "t", "]"}]}]}]}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"a", "'"}], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"Which", "[", 
+           RowBox[{
+            RowBox[{"t", "<", "t0A"}], ",", "0", ",", 
+            RowBox[{"t", "\[GreaterEqual]", "t0A"}], ",", 
+            RowBox[{"\[Alpha]", "-", 
+             RowBox[{"\[Sigma]", "*", 
+              RowBox[{"a", "[", "t", "]"}]}]}]}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"T", "[", "t0T", "]"}], "\[Equal]", "T0"}], ",", 
+         RowBox[{
+          RowBox[{"c", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+         RowBox[{
+          RowBox[{"b", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+         RowBox[{
+          RowBox[{"a", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"WhenEvent", "[", 
+          RowBox[{
+           RowBox[{"t", "\[Equal]", "t0B"}], ",", 
+           RowBox[{
+            RowBox[{"b", "[", "t", "]"}], "\[Rule]", "B0"}]}], "]"}]}], "}"}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"T", ",", "c", ",", "b", ",", "a"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "60"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Row", "[", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Show", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"RegionPlot", "[", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"x", "<", 
+                RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                 RowBox[{"rb", "/", "\[Theta]"}]}]}], "&&", 
+               RowBox[{"y", "<", 
+                RowBox[{"Kt", 
+                 RowBox[{"(", 
+                  RowBox[{"\[Mu]", "+", 
+                   RowBox[{"\[Lambda]", 
+                    RowBox[{"(", 
+                    RowBox[{"Kb", "-", 
+                    RowBox[{"\[Theta]", "*", 
+                    RowBox[{"x", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sigma]", "*", "rb"}], ")"}]}]}]}], ")"}]}]}], 
+                  ")"}], "*", 
+                 RowBox[{"rt", "/", "\[Delta]"}]}]}]}], ",", 
+              RowBox[{
+               RowBox[{"x", "<", 
+                RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                 RowBox[{"rb", "/", "\[Theta]"}]}]}], "&&", 
+               RowBox[{"y", ">", 
+                RowBox[{"Kt", 
+                 RowBox[{"(", 
+                  RowBox[{"\[Mu]", "+", 
+                   RowBox[{"\[Lambda]", 
+                    RowBox[{"(", 
+                    RowBox[{"Kb", "-", 
+                    RowBox[{"\[Theta]", "*", 
+                    RowBox[{"x", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sigma]", "*", "rb"}], ")"}]}]}]}], ")"}]}]}], 
+                  ")"}], "*", 
+                 RowBox[{"rt", "/", "\[Delta]"}]}]}]}], ",", 
+              RowBox[{
+               RowBox[{"x", ">", 
+                RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                 RowBox[{"rb", "/", "\[Theta]"}]}]}], "&&", 
+               RowBox[{"y", "<", 
+                RowBox[{"Kt", "*", "\[Mu]", "*", 
+                 RowBox[{"rt", "/", "\[Delta]"}]}]}]}], ",", 
+              RowBox[{
+               RowBox[{"x", ">", 
+                RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                 RowBox[{"rb", "/", "\[Theta]"}]}]}], "&&", 
+               RowBox[{"y", ">", 
+                RowBox[{"Kt", "*", "\[Mu]", "*", 
+                 RowBox[{"rt", "/", "\[Delta]"}]}]}]}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", "0", ",", "6"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"y", ",", "0", ",", "6"}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"PlotPoints", "\[Rule]", "150"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"FrameLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<\[Alpha]\>\"", ",", "\"\<\[Gamma]\>\""}], "}"}]}], 
+            ",", "\[IndentingNewLine]", 
+            RowBox[{"BoundaryStyle", "\[Rule]", "None"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"PlotStyle", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"RGBColor", "[", 
+                RowBox[{
+                 RowBox[{"185", "/", "255"}], ",", 
+                 RowBox[{"220", "/", "255"}], ",", 
+                 RowBox[{"231", "/", "255"}]}], "]"}], ",", 
+               RowBox[{"RGBColor", "[", 
+                RowBox[{
+                 RowBox[{"247", "/", "255"}], ",", 
+                 RowBox[{"203", "/", "255"}], ",", 
+                 RowBox[{"197", "/", "255"}]}], "]"}], ",", 
+               RowBox[{"RGBColor", "[", 
+                RowBox[{"1", ",", 
+                 RowBox[{"227", "/", "255"}], ",", 
+                 RowBox[{"175", "/", "255"}]}], "]"}], ",", 
+               RowBox[{"RGBColor", "[", 
+                RowBox[{
+                 RowBox[{"207", "/", "255"}], ",", 
+                 RowBox[{"176", "/", "255"}], ",", 
+                 RowBox[{"203", "/", "255"}]}], "]"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"FrameTicksStyle", "\[Rule]", 
+             RowBox[{"Directive", "[", 
+              RowBox[{
+               RowBox[{"FontOpacity", "\[Rule]", "0"}], ",", 
+               RowBox[{"FontSize", "\[Rule]", "0"}]}], "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"ImageSize", "\[Rule]", "150"}]}], "\[IndentingNewLine]", 
+           "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{"Red", ",", " ", 
+             RowBox[{"PointSize", "[", "0.06", "]"}], ",", 
+             RowBox[{"Point", "[", 
+              RowBox[{"{", 
+               RowBox[{"\[Alpha]", ",", "\[Gamma]"}], "}"}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Thickness", "[", "0.015", "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"ColorData", "[", 
+              RowBox[{"24", ",", "1"}], "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", 
+                  RowBox[{"Kt", 
+                   RowBox[{"(", 
+                    RowBox[{"\[Mu]", "+", 
+                    RowBox[{"\[Lambda]", "*", "Kb"}]}], ")"}], "*", 
+                   RowBox[{"rt", "/", "\[Delta]"}]}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                   RowBox[{"rb", "/", "\[Theta]"}]}], ",", 
+                  RowBox[{"Kt", "*", "\[Mu]", "*", 
+                   RowBox[{"rt", "/", "\[Delta]"}]}]}], "}"}]}], "}"}], "]"}],
+              ",", "\[IndentingNewLine]", 
+             RowBox[{"ColorData", "[", 
+              RowBox[{"24", ",", "2"}], "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                   RowBox[{"rb", "/", "\[Theta]"}]}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                   RowBox[{"rb", "/", "\[Theta]"}]}], ",", 
+                  RowBox[{"Kt", "*", "\[Mu]", "*", 
+                   RowBox[{"rt", "/", "\[Delta]"}]}]}], "}"}]}], "}"}], "]"}],
+              ",", "\[IndentingNewLine]", 
+             RowBox[{"ColorData", "[", 
+              RowBox[{"24", ",", "9"}], "]"}], ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                   RowBox[{"rb", "/", "\[Theta]"}]}], ",", "6"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                   RowBox[{"rb", "/", "\[Theta]"}]}], ",", 
+                  RowBox[{"Kt", "*", "\[Mu]", "*", 
+                   RowBox[{"rt", "/", "\[Delta]"}]}]}], "}"}]}], "}"}], "]"}],
+              ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"6", ",", 
+                  RowBox[{"Kt", "*", "\[Mu]", "*", 
+                   RowBox[{"rt", "/", "\[Delta]"}]}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                   RowBox[{"rb", "/", "\[Theta]"}]}], ",", 
+                  RowBox[{"Kt", "*", "\[Mu]", "*", 
+                   RowBox[{"rt", "/", "\[Delta]"}]}]}], "}"}]}], "}"}], "]"}],
+              ",", "\[IndentingNewLine]", 
+             RowBox[{"ColorData", "[", 
+              RowBox[{"24", ",", "9"}], "]"}], ",", 
+             RowBox[{"PointSize", "[", "0.04", "]"}], ",", 
+             RowBox[{"Point", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Kb", "*", "\[Sigma]", "*", 
+                 RowBox[{"rb", "/", "\[Theta]"}]}], ",", 
+                RowBox[{"Kt", "*", "\[Mu]", "*", 
+                 RowBox[{"rt", "/", "\[Delta]"}]}]}], "}"}], "]"}]}], "}"}], 
+           "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Plot", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"T", "[", "t", "]"}], "*", "tp"}], ",", 
+              RowBox[{
+               RowBox[{"c", "[", "t", "]"}], "*", "cp"}], ",", 
+              RowBox[{
+               RowBox[{"b", "[", "t", "]"}], "*", "bp"}], ",", 
+              RowBox[{
+               RowBox[{"a", "[", "t", "]"}], "*", "ap"}]}], "}"}], "/.", 
+            "sol"}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"t", ",", "0", ",", "60"}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "60"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "5"}], "}"}]}], "}"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"PlotLegends", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<T(t)\>\"", ",", "\"\<C(t)\>\"", ",", "\"\<B(t)\>\"", ",", 
+             "\"\<A(t)\>\""}], "}"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"AxesLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<t\>\"", ",", "None"}], "}"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"ImageSize", "\[Rule]", "400"}]}], "]"}]}], 
+       "\[IndentingNewLine]", "}"}], ",", "\"\<                \>\""}], 
+     "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Param\[EAcute]terek\>\"", ",", " ", "12"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "rt", ",", "0.4", ",", "\"\<\!\(\*SubscriptBox[\(r\), \(T\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "Kt", ",", "2.62", ",", "\"\<\!\(\*SubscriptBox[\(K\), \(T\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Delta]", ",", "1.15", ",", "\"\<\[Delta]\>\""}], "}"}], ",", 
+     "0", ",", "5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Gamma]", ",", "3.85", ",", "\"\<\[Gamma]\>\""}], "}"}], ",", 
+     "0", ",", "5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Mu]", ",", "2.6", ",", "\"\<\[Mu]\>\""}], "}"}], ",", "0", 
+     ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Lambda]", ",", "2", ",", "\"\<\[Lambda]\>\""}], "}"}], ",", 
+     "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "rb", ",", "1.81", ",", "\"\<\!\(\*SubscriptBox[\(r\), \(B\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "Kb", ",", "1.81", ",", "\"\<\!\(\*SubscriptBox[\(K\), \(B\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "1.085", ",", "\"\<\[Theta]\>\""}], "}"}], ",",
+      "0", ",", "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Alpha]", ",", "1.39", ",", "\"\<\[Alpha]\>\""}], "}"}], ",", 
+     "0", ",", "5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Sigma]", ",", "0.7", ",", "\"\<\[Sigma]\>\""}], "}"}], ",", 
+     "0", ",", "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Kezdeti \[EAcute]rt\[EAcute]kek\>\"", ",", " ", "12"}], 
+    "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "T0", ",", "0.2", ",", "\"\<\!\(\*SubscriptBox[\(T\), \(0\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "B0", ",", "0.1", ",", "\"\<\!\(\*SubscriptBox[\(B\), \(0\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Plotok\>\"", ",", "12"}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"tp", ",", "1", ",", "\"\<T\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<igen\>\""}], ",", 
+       RowBox[{"0", "\[Rule]", "\"\<nem\>\""}]}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "RadioButton"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"cp", ",", "1", ",", "\"\<C\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<igen\>\""}], ",", 
+       RowBox[{"0", "\[Rule]", "\"\<nem\>\""}]}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "RadioButton"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"bp", ",", "1", ",", "\"\<B\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<igen\>\""}], ",", 
+       RowBox[{"0", "\[Rule]", "\"\<nem\>\""}]}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "RadioButton"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ap", ",", "1", ",", "\"\<A\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<igen\>\""}], ",", 
+       RowBox[{"0", "\[Rule]", "\"\<nem\>\""}]}], "}"}], ",", 
+     RowBox[{"ControlType", "\[Rule]", "RadioButton"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Kezdeti id\[ODoubleAcute]pontok\>\"", ",", "12"}], "]"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "t0T", ",", "0", ",", "\"\<\!\(\*SubscriptBox[\(t\), \(0  T\)]\)\>\""}],
+       "}"}], ",", "0", ",", "50", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "t0C", ",", "18.7", ",", 
+       "\"\<\!\(\*SubscriptBox[\(t\), \(0  C\)]\)\>\""}], "}"}], ",", "0", 
+     ",", "50", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "t0B", ",", "23", ",", 
+       "\"\<\!\(\*SubscriptBox[\(t\), \(0  B\)]\)\>\""}], "}"}], ",", "0", 
+     ",", "50", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "t0A", ",", "32.6", ",", 
+       "\"\<\!\(\*SubscriptBox[\(t\), \(0  A\)]\)\>\""}], "}"}], ",", "0", 
+     ",", "50", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "Left", ",", "Left", ",", "Left", ",", "Left", ",", "Left", ",", "Left", 
+      ",", "Left", ",", "Left", ",", "Left", ",", "Left", ",", "Left", ",", 
+      "Left", ",", "Left", ",", "Left", ",", "Left", ",", "Right", ",", 
+      "Right", ",", "Right", ",", "Right", ",", "Right", ",", "Right", ",", 
+      "Right", ",", "Right", ",", "Right", ",", "Right"}], "}"}]}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.876633490873623*^9, 3.87663352343941*^9}, {
+   3.8766336192138515`*^9, 3.8766336559418325`*^9}, {3.8766337442128596`*^9, 
+   3.8766337771180587`*^9}, {3.8766338156504326`*^9, 
+   3.8766338163599825`*^9}, {3.8766339844054613`*^9, 
+   3.8766341919653463`*^9}, {3.8766342655885115`*^9, 3.876634268677941*^9}, {
+   3.8766346448594313`*^9, 3.8766346724441724`*^9}, {3.87663510052522*^9, 
+   3.8766351036977644`*^9}, {3.8766352323521466`*^9, 3.876635244322546*^9}, {
+   3.8835699720248666`*^9, 3.8835699734478254`*^9}, {3.884142147024685*^9, 
+   3.8841421553140745`*^9}, {3.8841421968799067`*^9, 3.884142211752627*^9}, {
+   3.8841423786936927`*^9, 3.8841423793918295`*^9}, {3.8841426472120523`*^9, 
+   3.8841426704480886`*^9}, {3.88414271491413*^9, 3.8841427266644382`*^9}, {
+   3.88414277878354*^9, 3.8841427824403396`*^9}, {3.884142879238599*^9, 
+   3.8841429027606945`*^9}, {3.884142942089814*^9, 3.8841429541275*^9}, {
+   3.8841430982651305`*^9, 3.8841431076872177`*^9}, {3.884143166703763*^9, 
+   3.88414319930341*^9}, {3.884402517037198*^9, 3.884402541236986*^9}, 
+   3.8844025718924294`*^9, {3.884402606161748*^9, 3.8844026075520935`*^9}, {
+   3.8844026560889263`*^9, 3.8844026755359755`*^9}, {3.8844028946311646`*^9, 
+   3.8844031018686066`*^9}, {3.8844031988628983`*^9, 
+   3.8844032001802526`*^9}, {3.884403244204403*^9, 3.8844032480777397`*^9}, 
+   3.884403397426794*^9, {3.8844035256729345`*^9, 3.8844035541904154`*^9}, {
+   3.8844037499798775`*^9, 3.8844037736332645`*^9}, {3.884403837550516*^9, 
+   3.8844038379319816`*^9}, {3.8844039420961094`*^9, 
+   3.8844039706464615`*^9}, {3.884404151344762*^9, 3.8844041635910296`*^9}, {
+   3.884404300691921*^9, 3.884404344231709*^9}, {3.884404444166421*^9, 
+   3.88440444745181*^9}, {3.8844045683503475`*^9, 3.8844045690003695`*^9}, {
+   3.884404695204548*^9, 3.8844046966383553`*^9}, {3.884404735091693*^9, 
+   3.884404738172614*^9}, {3.8915234898527284`*^9, 3.891523502706862*^9}, {
+   3.9228004311277523`*^9, 3.9228004944244347`*^9}, {3.9228007162902613`*^9, 
+   3.922800717060462*^9}, {3.922800756786557*^9, 3.9228007998338127`*^9}, 
+   3.9228008307999444`*^9, {3.9228010071226015`*^9, 3.922801019345317*^9}, {
+   3.9228010703582687`*^9, 3.9228011247018147`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"dc728c8b-f839-4b18-ac7b-e91516ce1f49"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`ap$$ = 1, $CellContext`B0$$ = 
+    0.1, $CellContext`bp$$ = 1, $CellContext`cp$$ = 1, $CellContext`Kb$$ = 
+    1.81, $CellContext`Kt$$ = 2.62, $CellContext`rb$$ = 
+    1.81, $CellContext`rt$$ = 0.4, $CellContext`T0$$ = 
+    0.2, $CellContext`t0A$$ = 32.6, $CellContext`t0B$$ = 
+    23, $CellContext`t0C$$ = 18.7, $CellContext`t0T$$ = 0, $CellContext`tp$$ =
+     1, $CellContext`\[Alpha]$$ = 1.39, $CellContext`\[Gamma]$$ = 
+    3.85, $CellContext`\[Delta]$$ = 1.15, $CellContext`\[Theta]$$ = 
+    1.085, $CellContext`\[Lambda]$$ = 2, $CellContext`\[Mu]$$ = 
+    2.6, $CellContext`\[Sigma]$$ = 0.7, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["Param\[EAcute]terek", 12]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`rt$$], 0.4, "\!\(\*SubscriptBox[\(r\), \(T\)]\)"}, 0,
+       4}, {{
+       Hold[$CellContext`Kt$$], 2.62, "\!\(\*SubscriptBox[\(K\), \(T\)]\)"}, 
+      0, 4}, {{
+       Hold[$CellContext`\[Delta]$$], 1.15, "\[Delta]"}, 0, 5}, {{
+       Hold[$CellContext`\[Gamma]$$], 3.85, "\[Gamma]"}, 0, 5}, {{
+       Hold[$CellContext`\[Mu]$$], 2.6, "\[Mu]"}, 0, 4}, {{
+       Hold[$CellContext`\[Lambda]$$], 2, "\[Lambda]"}, 0, 4}, {{
+       Hold[$CellContext`rb$$], 1.81, "\!\(\*SubscriptBox[\(r\), \(B\)]\)"}, 
+      0, 4}, {{
+       Hold[$CellContext`Kb$$], 1.81, "\!\(\*SubscriptBox[\(K\), \(B\)]\)"}, 
+      0, 4}, {{
+       Hold[$CellContext`\[Theta]$$], 1.085, "\[Theta]"}, 0, 2}, {{
+       Hold[$CellContext`\[Alpha]$$], 1.39, "\[Alpha]"}, 0, 5}, {{
+       Hold[$CellContext`\[Sigma]$$], 0.7, "\[Sigma]"}, 0, 2}, {
+      Hold[
+       Style["Kezdeti \[EAcute]rt\[EAcute]kek", 12]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`T0$$], 0.2, "\!\(\*SubscriptBox[\(T\), \(0\)]\)"}, 0,
+       4}, {{
+       Hold[$CellContext`B0$$], 0.1, "\!\(\*SubscriptBox[\(B\), \(0\)]\)"}, 0,
+       4}, {
+      Hold[
+       Style["Plotok", 12]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`tp$$], 1, "T"}, {1 -> "igen", 0 -> "nem"}}, {{
+       Hold[$CellContext`cp$$], 1, "C"}, {1 -> "igen", 0 -> "nem"}}, {{
+       Hold[$CellContext`bp$$], 1, "B"}, {1 -> "igen", 0 -> "nem"}}, {{
+       Hold[$CellContext`ap$$], 1, "A"}, {1 -> "igen", 0 -> "nem"}}, {
+      Hold[
+       Style["Kezdeti id\[ODoubleAcute]pontok", 12]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`t0T$$], 0, "\!\(\*SubscriptBox[\(t\), \(0  T\)]\)"}, 
+      0, 50}, {{
+       Hold[$CellContext`t0C$$], 18.7, 
+       "\!\(\*SubscriptBox[\(t\), \(0  C\)]\)"}, 0, 50}, {{
+       Hold[$CellContext`t0B$$], 23, "\!\(\*SubscriptBox[\(t\), \(0  B\)]\)"},
+       0, 50}, {{
+       Hold[$CellContext`t0A$$], 32.6, 
+       "\!\(\*SubscriptBox[\(t\), \(0  A\)]\)"}, 0, 50}}, Typeset`size$$ = {
+    536.9295999999999, {101., 105.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`ap$$ = 1, $CellContext`B0$$ = 
+        0.1, $CellContext`bp$$ = 1, $CellContext`cp$$ = 1, $CellContext`Kb$$ = 
+        1.81, $CellContext`Kt$$ = 2.62, $CellContext`rb$$ = 
+        1.81, $CellContext`rt$$ = 0.4, $CellContext`T0$$ = 
+        0.2, $CellContext`t0A$$ = 32.6, $CellContext`t0B$$ = 
+        23, $CellContext`t0C$$ = 18.7, $CellContext`t0T$$ = 
+        0, $CellContext`tp$$ = 1, $CellContext`\[Alpha]$$ = 
+        1.39, $CellContext`\[Gamma]$$ = 3.85, $CellContext`\[Delta]$$ = 
+        1.15, $CellContext`\[Theta]$$ = 1.085, $CellContext`\[Lambda]$$ = 
+        2, $CellContext`\[Mu]$$ = 2.6, $CellContext`\[Sigma]$$ = 0.7}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`sol = 
+        NDSolve[{
+          Derivative[1][$CellContext`T][$CellContext`t] == 
+           Which[$CellContext`t < $CellContext`t0T$$, 
+             0, $CellContext`t >= $CellContext`t0T$$, $CellContext`rt$$ \
+$CellContext`T[$CellContext`t] ($CellContext`Kt$$ - \
+$CellContext`T[$CellContext`t]) - $CellContext`\[Delta]$$ \
+$CellContext`T[$CellContext`t] $CellContext`c[$CellContext`t]], 
+           Derivative[1][$CellContext`c][$CellContext`t] == 
+           Which[$CellContext`t < $CellContext`t0C$$, 
+             0, $CellContext`t >= $CellContext`t0C$$, $CellContext`\[Gamma]$$ - \
+$CellContext`\[Mu]$$ $CellContext`c[$CellContext`t] - \
+$CellContext`\[Lambda]$$ $CellContext`c[$CellContext`t] \
+$CellContext`b[$CellContext`t]], 
+           Derivative[1][$CellContext`b][$CellContext`t] == 
+           Which[$CellContext`t < $CellContext`t0B$$, 
+             0, $CellContext`t >= $CellContext`t0B$$, $CellContext`rb$$ \
+$CellContext`b[$CellContext`t] ($CellContext`Kb$$ - \
+$CellContext`b[$CellContext`t]) - $CellContext`\[Theta]$$ \
+$CellContext`b[$CellContext`t] $CellContext`a[$CellContext`t]], 
+           Derivative[1][$CellContext`a][$CellContext`t] == 
+           Which[$CellContext`t < $CellContext`t0A$$, 
+             0, $CellContext`t >= $CellContext`t0A$$, $CellContext`\[Alpha]$$ - \
+$CellContext`\[Sigma]$$ $CellContext`a[$CellContext`t]], \
+$CellContext`T[$CellContext`t0T$$] == $CellContext`T0$$, $CellContext`c[0] == 
+           0, $CellContext`b[0] == 0, $CellContext`a[0] == 0, 
+           
+           WhenEvent[$CellContext`t == $CellContext`t0B$$, \
+$CellContext`b[$CellContext`t] -> $CellContext`B0$$]}, {$CellContext`T, \
+$CellContext`c, $CellContext`b, $CellContext`a}, {$CellContext`t, 60}]; Row[{
+          Show[
+           RegionPlot[{
+             
+             And[$CellContext`x < $CellContext`Kb$$ $CellContext`\[Sigma]$$ \
+($CellContext`rb$$/$CellContext`\[Theta]$$), $CellContext`y < \
+$CellContext`Kt$$ ($CellContext`\[Mu]$$ + $CellContext`\[Lambda]$$ \
+($CellContext`Kb$$ - $CellContext`\[Theta]$$ ($CellContext`x/($CellContext`\
+\[Sigma]$$ $CellContext`rb$$)))) ($CellContext`rt$$/$CellContext`\[Delta]$$)], 
+             
+             And[$CellContext`x < $CellContext`Kb$$ $CellContext`\[Sigma]$$ \
+($CellContext`rb$$/$CellContext`\[Theta]$$), $CellContext`y > \
+$CellContext`Kt$$ ($CellContext`\[Mu]$$ + $CellContext`\[Lambda]$$ \
+($CellContext`Kb$$ - $CellContext`\[Theta]$$ ($CellContext`x/($CellContext`\
+\[Sigma]$$ $CellContext`rb$$)))) ($CellContext`rt$$/$CellContext`\[Delta]$$)], 
+             
+             And[$CellContext`x > $CellContext`Kb$$ $CellContext`\[Sigma]$$ \
+($CellContext`rb$$/$CellContext`\[Theta]$$), $CellContext`y < \
+$CellContext`Kt$$ $CellContext`\[Mu]$$ ($CellContext`rt$$/$CellContext`\
+\[Delta]$$)], 
+             
+             And[$CellContext`x > $CellContext`Kb$$ $CellContext`\[Sigma]$$ \
+($CellContext`rb$$/$CellContext`\[Theta]$$), $CellContext`y > \
+$CellContext`Kt$$ $CellContext`\[Mu]$$ ($CellContext`rt$$/$CellContext`\
+\[Delta]$$)]}, {$CellContext`x, 0, 6}, {$CellContext`y, 0, 6}, PlotPoints -> 
+            150, FrameLabel -> {"\[Alpha]", "\[Gamma]"}, BoundaryStyle -> 
+            None, PlotStyle -> {
+              RGBColor[185/255, 220/255, 231/255], 
+              RGBColor[247/255, 203/255, 197/255], 
+              RGBColor[1, 227/255, 175/255], 
+              RGBColor[207/255, 176/255, 203/255]}, FrameTicksStyle -> 
+            Directive[FontOpacity -> 0, FontSize -> 0], ImageSize -> 150], 
+           Graphics[{Red, 
+             PointSize[0.06], 
+             Point[{$CellContext`\[Alpha]$$, $CellContext`\[Gamma]$$}], 
+             Thickness[0.015], 
+             ColorData[24, 1], 
+             
+             Line[{{0, $CellContext`Kt$$ ($CellContext`\[Mu]$$ + \
+$CellContext`\[Lambda]$$ $CellContext`Kb$$) ($CellContext`rt$$/$CellContext`\
+\[Delta]$$)}, {$CellContext`Kb$$ $CellContext`\[Sigma]$$ \
+($CellContext`rb$$/$CellContext`\[Theta]$$), $CellContext`Kt$$ $CellContext`\
+\[Mu]$$ ($CellContext`rt$$/$CellContext`\[Delta]$$)}}], 
+             ColorData[24, 2], 
+             
+             Line[{{$CellContext`Kb$$ $CellContext`\[Sigma]$$ \
+($CellContext`rb$$/$CellContext`\[Theta]$$), 
+                0}, {$CellContext`Kb$$ $CellContext`\[Sigma]$$ \
+($CellContext`rb$$/$CellContext`\[Theta]$$), $CellContext`Kt$$ $CellContext`\
+\[Mu]$$ ($CellContext`rt$$/$CellContext`\[Delta]$$)}}], 
+             ColorData[24, 9], 
+             
+             Line[{{$CellContext`Kb$$ $CellContext`\[Sigma]$$ \
+($CellContext`rb$$/$CellContext`\[Theta]$$), 
+                6}, {$CellContext`Kb$$ $CellContext`\[Sigma]$$ \
+($CellContext`rb$$/$CellContext`\[Theta]$$), $CellContext`Kt$$ $CellContext`\
+\[Mu]$$ ($CellContext`rt$$/$CellContext`\[Delta]$$)}}], 
+             
+             Line[{{6, $CellContext`Kt$$ $CellContext`\[Mu]$$ \
+($CellContext`rt$$/$CellContext`\[Delta]$$)}, {$CellContext`Kb$$ \
+$CellContext`\[Sigma]$$ ($CellContext`rb$$/$CellContext`\[Theta]$$), \
+$CellContext`Kt$$ $CellContext`\[Mu]$$ ($CellContext`rt$$/$CellContext`\
+\[Delta]$$)}}], 
+             ColorData[24, 9], 
+             PointSize[0.04], 
+             
+             Point[{$CellContext`Kb$$ $CellContext`\[Sigma]$$ \
+($CellContext`rb$$/$CellContext`\[Theta]$$), $CellContext`Kt$$ $CellContext`\
+\[Mu]$$ ($CellContext`rt$$/$CellContext`\[Delta]$$)}]}]], 
+          Plot[
+           Evaluate[
+            
+            ReplaceAll[{$CellContext`T[$CellContext`t] $CellContext`tp$$, \
+$CellContext`c[$CellContext`t] $CellContext`cp$$, \
+$CellContext`b[$CellContext`t] $CellContext`bp$$, \
+$CellContext`a[$CellContext`t] $CellContext`ap$$}, $CellContext`sol]], \
+{$CellContext`t, 0, 60}, PlotRange -> {{0, 60}, {0, 5}}, 
+           PlotLegends -> {"T(t)", "C(t)", "B(t)", "A(t)"}, 
+           AxesLabel -> {"t", None}, ImageSize -> 400]}, "                "]),
+       "Specifications" :> {
+        Style[
+        "Param\[EAcute]terek", 
+         12], {{$CellContext`rt$$, 0.4, "\!\(\*SubscriptBox[\(r\), \(T\)]\)"},
+          0, 4, Appearance -> 
+         "Labeled"}, {{$CellContext`Kt$$, 2.62, 
+          "\!\(\*SubscriptBox[\(K\), \(T\)]\)"}, 0, 4, Appearance -> 
+         "Labeled"}, {{$CellContext`\[Delta]$$, 1.15, "\[Delta]"}, 0, 5, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`\[Gamma]$$, 3.85, "\[Gamma]"}, 0, 5, 
+         Appearance -> "Labeled"}, {{$CellContext`\[Mu]$$, 2.6, "\[Mu]"}, 0, 
+         4, Appearance -> 
+         "Labeled"}, {{$CellContext`\[Lambda]$$, 2, "\[Lambda]"}, 0, 4, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`rb$$, 1.81, 
+          "\!\(\*SubscriptBox[\(r\), \(B\)]\)"}, 0, 4, Appearance -> 
+         "Labeled"}, {{$CellContext`Kb$$, 1.81, 
+          "\!\(\*SubscriptBox[\(K\), \(B\)]\)"}, 0, 4, Appearance -> 
+         "Labeled"}, {{$CellContext`\[Theta]$$, 1.085, "\[Theta]"}, 0, 2, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`\[Alpha]$$, 1.39, "\[Alpha]"}, 0, 5, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`\[Sigma]$$, 0.7, "\[Sigma]"}, 0, 2, 
+         Appearance -> "Labeled"}, Delimiter, 
+        Style[
+        "Kezdeti \[EAcute]rt\[EAcute]kek", 
+         12], {{$CellContext`T0$$, 0.2, "\!\(\*SubscriptBox[\(T\), \(0\)]\)"},
+          0, 4, Appearance -> 
+         "Labeled"}, {{$CellContext`B0$$, 0.1, 
+          "\!\(\*SubscriptBox[\(B\), \(0\)]\)"}, 0, 4, Appearance -> 
+         "Labeled"}, 
+        Style[
+        "Plotok", 12], {{$CellContext`tp$$, 1, "T"}, {
+         1 -> "igen", 0 -> "nem"}, ControlType -> 
+         RadioButton}, {{$CellContext`cp$$, 1, "C"}, {
+         1 -> "igen", 0 -> "nem"}, ControlType -> 
+         RadioButton}, {{$CellContext`bp$$, 1, "B"}, {
+         1 -> "igen", 0 -> "nem"}, ControlType -> 
+         RadioButton}, {{$CellContext`ap$$, 1, "A"}, {
+         1 -> "igen", 0 -> "nem"}, ControlType -> RadioButton}, Delimiter, 
+        Style[
+        "Kezdeti id\[ODoubleAcute]pontok", 
+         12], {{$CellContext`t0T$$, 0, 
+          "\!\(\*SubscriptBox[\(t\), \(0  T\)]\)"}, 0, 50, Appearance -> 
+         "Labeled"}, {{$CellContext`t0C$$, 18.7, 
+          "\!\(\*SubscriptBox[\(t\), \(0  C\)]\)"}, 0, 50, Appearance -> 
+         "Labeled"}, {{$CellContext`t0B$$, 23, 
+          "\!\(\*SubscriptBox[\(t\), \(0  B\)]\)"}, 0, 50, Appearance -> 
+         "Labeled"}, {{$CellContext`t0A$$, 32.6, 
+          "\!\(\*SubscriptBox[\(t\), \(0  A\)]\)"}, 0, 50, Appearance -> 
+         "Labeled"}}, 
+      "Options" :> {
+       ControlPlacement -> {
+         Left, Left, Left, Left, Left, Left, Left, Left, Left, Left, Left, 
+          Left, Left, Left, Left, Right, Right, Right, Right, Right, Right, 
+          Right, Right, Right, Right}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1008., {145.1, 149.9}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.9228005008671722`*^9, 3.922800726986598*^9, {3.9228008096102953`*^9, 
+   3.9228008371512012`*^9}, 3.9228011326028676`*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"c6a96f7b-37c9-478b-8894-c4cf73ed20bf"]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Periodikus impulz\[IAcute]v adagol\[AAcute]s", "Section",
+ CellChangeTimes->{{3.9228001408543096`*^9, 
+  3.9228001571935306`*^9}},ExpressionUUID->"ab798198-6b22-4dd7-b253-\
+1dc959c56338"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"sol", "=", 
+     RowBox[{"NDSolve", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"T", "'"}], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"Which", "[", 
+           RowBox[{
+            RowBox[{"t", "<", "t0T"}], ",", "0", ",", 
+            RowBox[{"t", "\[GreaterEqual]", "t0T"}], ",", 
+            RowBox[{
+             RowBox[{"rt", "*", 
+              RowBox[{"T", "[", "t", "]"}], "*", 
+              RowBox[{"(", 
+               RowBox[{"Kt", "-", 
+                RowBox[{"T", "[", "t", "]"}]}], ")"}]}], "-", 
+             RowBox[{"\[Delta]", "*", 
+              RowBox[{"T", "[", "t", "]"}], "*", 
+              RowBox[{"c", "[", "t", "]"}]}]}]}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"c", "'"}], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"Which", "[", 
+           RowBox[{
+            RowBox[{"t", "<", "t0C"}], ",", "0", ",", 
+            RowBox[{"t", "\[GreaterEqual]", "t0C"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", "\[Mu]"}], "*", 
+              RowBox[{"c", "[", "t", "]"}]}], "-", 
+             RowBox[{"\[Lambda]", "*", 
+              RowBox[{"c", "[", "t", "]"}], "*", 
+              RowBox[{"b", "[", "t", "]"}]}]}]}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"b", "'"}], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"Which", "[", 
+           RowBox[{
+            RowBox[{"t", "<", "t0B"}], ",", "0", ",", 
+            RowBox[{"t", "\[GreaterEqual]", "t0B"}], ",", 
+            RowBox[{
+             RowBox[{"rb", "*", 
+              RowBox[{"b", "[", "t", "]"}], "*", 
+              RowBox[{"(", 
+               RowBox[{"Kb", "-", 
+                RowBox[{"b", "[", "t", "]"}]}], ")"}]}], "-", 
+             RowBox[{"\[Theta]", "*", 
+              RowBox[{"b", "[", "t", "]"}], "*", 
+              RowBox[{"a", "[", "t", "]"}]}]}]}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"a", "'"}], "[", "t", "]"}], "\[Equal]", 
+          RowBox[{"Which", "[", 
+           RowBox[{
+            RowBox[{"t", "<", "t0A"}], ",", "0", ",", 
+            RowBox[{"t", "\[GreaterEqual]", "t0A"}], ",", 
+            RowBox[{
+             RowBox[{"-", "\[Sigma]"}], "*", 
+             RowBox[{"a", "[", "t", "]"}]}]}], "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"T", "[", "t0T", "]"}], "\[Equal]", "T0"}], ",", 
+         RowBox[{
+          RowBox[{"c", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+         RowBox[{
+          RowBox[{"b", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+         RowBox[{
+          RowBox[{"a", "[", "0", "]"}], "\[Equal]", "0"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"WhenEvent", "[", 
+          RowBox[{
+           RowBox[{"t", "\[Equal]", "t0B"}], ",", 
+           RowBox[{
+            RowBox[{"b", "[", "t", "]"}], "\[Rule]", "B0"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"WhenEvent", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"Mod", "[", 
+              RowBox[{
+               RowBox[{"t", "/", "dtC"}], ",", "1"}], "]"}], "\[Equal]", 
+             "0"}], "&&", 
+            RowBox[{"t", "\[GreaterEqual]", "t0C"}]}], ",", 
+           RowBox[{
+            RowBox[{"c", "[", "t", "]"}], "\[Rule]", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"c", "[", "t", "]"}], "+", "dqC"}], ")"}]}]}], "]"}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{"WhenEvent", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"Mod", "[", 
+              RowBox[{
+               RowBox[{"t", "/", "dtA"}], ",", "1"}], "]"}], "\[Equal]", 
+             "0"}], "&&", 
+            RowBox[{"t", "\[GreaterEqual]", "t0A"}]}], ",", 
+           RowBox[{
+            RowBox[{"a", "[", "t", "]"}], "\[Rule]", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"a", "[", "t", "]"}], "+", "dqA"}], ")"}]}]}], "]"}]}], 
+        "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"T", ",", "c", ",", "b", ",", "a"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "60"}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Plot", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Evaluate", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"T", "[", "t", "]"}], ",", 
+          RowBox[{"c", "[", "t", "]"}], ",", 
+          RowBox[{"b", "[", "t", "]"}], ",", 
+          RowBox[{"a", "[", "t", "]"}]}], "}"}], "/.", "sol"}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", "60"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"PlotRange", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "60"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "5"}], "}"}]}], "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"PlotLegends", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<T\>\"", ",", "\"\<C\>\"", ",", "\"\<B\>\"", ",", "\"\<A\>\""}], 
+        "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<t\>\"", ",", "None"}], "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ImageSize", "\[Rule]", "400"}]}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Param\[EAcute]terek\>\"", ",", " ", "12"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "rt", ",", "1.71", ",", "\"\<\!\(\*SubscriptBox[\(r\), \(T\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "Kt", ",", "1.61", ",", "\"\<\!\(\*SubscriptBox[\(K\), \(T\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Delta]", ",", "2.84", ",", "\"\<\[Delta]\>\""}], "}"}], ",", 
+     "0", ",", "5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Mu]", ",", "0.41", ",", "\"\<\[Mu]\>\""}], "}"}], ",", "0", 
+     ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Lambda]", ",", "1.51", ",", "\"\<\[Lambda]\>\""}], "}"}], 
+     ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "rb", ",", "1.81", ",", "\"\<\!\(\*SubscriptBox[\(r\), \(B\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "Kb", ",", "1.23", ",", "\"\<\!\(\*SubscriptBox[\(K\), \(B\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", "1.135", ",", "\"\<\[Theta]\>\""}], "}"}], ",",
+      "0", ",", "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Sigma]", ",", "0.295", ",", "\"\<\[Sigma]\>\""}], "}"}], ",",
+      "0", ",", "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Kezdeti \[EAcute]rt\[EAcute]kek\>\"", ",", " ", "12"}], 
+    "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "T0", ",", "0.1", ",", "\"\<\!\(\*SubscriptBox[\(T\), \(0\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "B0", ",", "0.1", ",", "\"\<\!\(\*SubscriptBox[\(B\), \(0\)]\)\>\""}], 
+      "}"}], ",", "0", ",", "4", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<Kezdeti id\[ODoubleAcute]pontok\>\"", ",", "12"}], "]"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "t0T", ",", "0", ",", "\"\<\!\(\*SubscriptBox[\(t\), \(0  T\)]\)\>\""}],
+       "}"}], ",", "0", ",", "50", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "t0C", ",", "10", ",", 
+       "\"\<\!\(\*SubscriptBox[\(t\), \(0  C\)]\)\>\""}], "}"}], ",", "0", 
+     ",", "50", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "t0B", ",", "20", ",", 
+       "\"\<\!\(\*SubscriptBox[\(t\), \(0  B\)]\)\>\""}], "}"}], ",", "0", 
+     ",", "50", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "t0A", ",", "30", ",", 
+       "\"\<\!\(\*SubscriptBox[\(t\), \(0  A\)]\)\>\""}], "}"}], ",", "0", 
+     ",", "50", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<WhenEvent\>\"", ",", "12"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"dtC", ",", "1.97", ",", "\"\<C id\[ODoubleAcute]\>\""}], "}"}],
+      ",", "0", ",", "5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"dqC", ",", "0.58", ",", "\"\<C mennyis\[EAcute]g\>\""}], "}"}],
+      ",", "0", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"dtA", ",", "1.65", ",", "\"\<A id\[ODoubleAcute]\>\""}], "}"}],
+      ",", "0", ",", "5", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"dqA", ",", "0.972", ",", "\"\<A mennyis\[EAcute]g\>\""}], 
+      "}"}], ",", "0", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "Left", ",", "Left", ",", "Left", ",", "Left", ",", "Left", ",", "Left", 
+      ",", "Left", ",", "Left", ",", "Left", ",", "Left", ",", "Left", ",", 
+      "Left", ",", "Left", ",", 
+      RowBox[{"(*", 
+       RowBox[{"Left", ",", "Left", ","}], "*)"}], "Right", ",", "Right", ",",
+       "Right", ",", "Right", ",", "Right", ",", "Right", ",", "Right", ",", 
+      "Right", ",", "Right", ",", "Right"}], "}"}]}]}], "\[IndentingNewLine]",
+   "]"}]], "Input",
+ CellChangeTimes->{{3.8760255039924974`*^9, 3.8760255097564945`*^9}, {
+   3.8760257402410393`*^9, 3.8760257692155037`*^9}, {3.876198858747636*^9, 
+   3.8761989036885157`*^9}, {3.8761991127987323`*^9, 3.876199114028994*^9}, {
+   3.8761993709512343`*^9, 3.8761993806689467`*^9}, {3.876199550419071*^9, 
+   3.8761995596385355`*^9}, {3.8761996018490305`*^9, 3.876199665219413*^9}, {
+   3.8761996974993095`*^9, 3.8761997318492937`*^9}, {3.8761998139283133`*^9, 
+   3.8761998301617107`*^9}, {3.87619999558975*^9, 3.8762000624285345`*^9}, 
+   3.8766311990586944`*^9, {3.88356971323415*^9, 3.8835697149443703`*^9}, {
+   3.8835701454263034`*^9, 3.8835701681563845`*^9}, {3.883570745257172*^9, 
+   3.883570929866357*^9}, {3.8835710885492134`*^9, 3.883571166493062*^9}, {
+   3.883571211253384*^9, 3.883571220441495*^9}, {3.8835712631974373`*^9, 
+   3.883571296669874*^9}, {3.8835714627269735`*^9, 3.8835715030723586`*^9}, {
+   3.8835715701821795`*^9, 3.883571606911682*^9}, {3.883571648716643*^9, 
+   3.8835717247604327`*^9}, {3.883618357841469*^9, 3.8836183715858607`*^9}, {
+   3.8842668938682833`*^9, 3.8842669919022665`*^9}, {3.884267023096339*^9, 
+   3.884267044683522*^9}, {3.884267075580907*^9, 3.884267093229328*^9}, {
+   3.884267183234826*^9, 3.8842672066271048`*^9}, {3.8842672637940364`*^9, 
+   3.884267267187606*^9}, {3.884267312938261*^9, 3.8842673584919662`*^9}, {
+   3.8842686968637767`*^9, 3.8842687259395733`*^9}, {3.9228001839699483`*^9, 
+   3.92280018764729*^9}},ExpressionUUID->"a2932099-34ab-4572-8c28-\
+1038147d15b8"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`B0$$ = 0.1, $CellContext`dqA$$ = 
+    0.972, $CellContext`dqC$$ = 0.58, $CellContext`dtA$$ = 
+    1.65, $CellContext`dtC$$ = 1.97, $CellContext`Kb$$ = 
+    1.23, $CellContext`Kt$$ = 1.61, $CellContext`rb$$ = 
+    1.81, $CellContext`rt$$ = 1.71, $CellContext`T0$$ = 
+    0.1, $CellContext`t0A$$ = 30, $CellContext`t0B$$ = 
+    20, $CellContext`t0C$$ = 10, $CellContext`t0T$$ = 
+    0, $CellContext`\[Delta]$$ = 2.84, $CellContext`\[Theta]$$ = 
+    1.135, $CellContext`\[Lambda]$$ = 1.51, $CellContext`\[Mu]$$ = 
+    0.41, $CellContext`\[Sigma]$$ = 0.295, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["Param\[EAcute]terek", 12]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`rt$$], 1.71, "\!\(\*SubscriptBox[\(r\), \(T\)]\)"}, 
+      0, 4}, {{
+       Hold[$CellContext`Kt$$], 1.61, "\!\(\*SubscriptBox[\(K\), \(T\)]\)"}, 
+      0, 4}, {{
+       Hold[$CellContext`\[Delta]$$], 2.84, "\[Delta]"}, 0, 5}, {{
+       Hold[$CellContext`\[Mu]$$], 0.41, "\[Mu]"}, 0, 4}, {{
+       Hold[$CellContext`\[Lambda]$$], 1.51, "\[Lambda]"}, 0, 4}, {{
+       Hold[$CellContext`rb$$], 1.81, "\!\(\*SubscriptBox[\(r\), \(B\)]\)"}, 
+      0, 4}, {{
+       Hold[$CellContext`Kb$$], 1.23, "\!\(\*SubscriptBox[\(K\), \(B\)]\)"}, 
+      0, 4}, {{
+       Hold[$CellContext`\[Theta]$$], 1.135, "\[Theta]"}, 0, 2}, {{
+       Hold[$CellContext`\[Sigma]$$], 0.295, "\[Sigma]"}, 0, 2}, {
+      Hold[
+       Style["Kezdeti \[EAcute]rt\[EAcute]kek", 12]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`T0$$], 0.1, "\!\(\*SubscriptBox[\(T\), \(0\)]\)"}, 0,
+       4}, {{
+       Hold[$CellContext`B0$$], 0.1, "\!\(\*SubscriptBox[\(B\), \(0\)]\)"}, 0,
+       4}, {
+      Hold[
+       Style["Kezdeti id\[ODoubleAcute]pontok", 12]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`t0T$$], 0, "\!\(\*SubscriptBox[\(t\), \(0  T\)]\)"}, 
+      0, 50}, {{
+       Hold[$CellContext`t0C$$], 10, "\!\(\*SubscriptBox[\(t\), \(0  C\)]\)"},
+       0, 50}, {{
+       Hold[$CellContext`t0B$$], 20, "\!\(\*SubscriptBox[\(t\), \(0  B\)]\)"},
+       0, 50}, {{
+       Hold[$CellContext`t0A$$], 30, "\!\(\*SubscriptBox[\(t\), \(0  A\)]\)"},
+       0, 50}, {
+      Hold[
+       Style["WhenEvent", 12]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`dtC$$], 1.97, "C id\[ODoubleAcute]"}, 0, 5}, {{
+       Hold[$CellContext`dqC$$], 0.58, "C mennyis\[EAcute]g"}, 0, 1}, {{
+       Hold[$CellContext`dtA$$], 1.65, "A id\[ODoubleAcute]"}, 0, 5}, {{
+       Hold[$CellContext`dqA$$], 0.972, "A mennyis\[EAcute]g"}, 0, 1}}, 
+    Typeset`size$$ = {367., {101., 105.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`B0$$ = 0.1, $CellContext`dqA$$ = 
+        0.972, $CellContext`dqC$$ = 0.58, $CellContext`dtA$$ = 
+        1.65, $CellContext`dtC$$ = 1.97, $CellContext`Kb$$ = 
+        1.23, $CellContext`Kt$$ = 1.61, $CellContext`rb$$ = 
+        1.81, $CellContext`rt$$ = 1.71, $CellContext`T0$$ = 
+        0.1, $CellContext`t0A$$ = 30, $CellContext`t0B$$ = 
+        20, $CellContext`t0C$$ = 10, $CellContext`t0T$$ = 
+        0, $CellContext`\[Delta]$$ = 2.84, $CellContext`\[Theta]$$ = 
+        1.135, $CellContext`\[Lambda]$$ = 1.51, $CellContext`\[Mu]$$ = 
+        0.41, $CellContext`\[Sigma]$$ = 0.295}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`sol = 
+        NDSolve[{
+          Derivative[1][$CellContext`T][$CellContext`t] == 
+           Which[$CellContext`t < $CellContext`t0T$$, 
+             
+             0, $CellContext`t >= $CellContext`t0T$$, $CellContext`rt$$ \
+$CellContext`T[$CellContext`t] ($CellContext`Kt$$ - \
+$CellContext`T[$CellContext`t]) - $CellContext`\[Delta]$$ \
+$CellContext`T[$CellContext`t] $CellContext`c[$CellContext`t]], 
+           Derivative[1][$CellContext`c][$CellContext`t] == 
+           Which[$CellContext`t < $CellContext`t0C$$, 
+             0, $CellContext`t >= $CellContext`t0C$$, (-$CellContext`\[Mu]$$) \
+$CellContext`c[$CellContext`t] - $CellContext`\[Lambda]$$ \
+$CellContext`c[$CellContext`t] $CellContext`b[$CellContext`t]], 
+           Derivative[1][$CellContext`b][$CellContext`t] == 
+           Which[$CellContext`t < $CellContext`t0B$$, 
+             0, $CellContext`t >= $CellContext`t0B$$, $CellContext`rb$$ \
+$CellContext`b[$CellContext`t] ($CellContext`Kb$$ - \
+$CellContext`b[$CellContext`t]) - $CellContext`\[Theta]$$ \
+$CellContext`b[$CellContext`t] $CellContext`a[$CellContext`t]], 
+           Derivative[1][$CellContext`a][$CellContext`t] == 
+           Which[$CellContext`t < $CellContext`t0A$$, 
+             0, $CellContext`t >= $CellContext`t0A$$, \
+(-$CellContext`\[Sigma]$$) $CellContext`a[$CellContext`t]], \
+$CellContext`T[$CellContext`t0T$$] == $CellContext`T0$$, $CellContext`c[0] == 
+           0, $CellContext`b[0] == 0, $CellContext`a[0] == 0, 
+           
+           WhenEvent[$CellContext`t == $CellContext`t0B$$, \
+$CellContext`b[$CellContext`t] -> $CellContext`B0$$], 
+           WhenEvent[
+            And[
+            Mod[$CellContext`t/$CellContext`dtC$$, 1] == 
+             0, $CellContext`t >= $CellContext`t0C$$], \
+$CellContext`c[$CellContext`t] -> $CellContext`c[$CellContext`t] + \
+$CellContext`dqC$$], 
+           WhenEvent[
+            And[
+            Mod[$CellContext`t/$CellContext`dtA$$, 1] == 
+             0, $CellContext`t >= $CellContext`t0A$$], \
+$CellContext`a[$CellContext`t] -> $CellContext`a[$CellContext`t] + \
+$CellContext`dqA$$]}, {$CellContext`T, $CellContext`c, $CellContext`b, \
+$CellContext`a}, {$CellContext`t, 60}]; Plot[
+         Evaluate[
+          ReplaceAll[{
+            $CellContext`T[$CellContext`t], 
+            $CellContext`c[$CellContext`t], 
+            $CellContext`b[$CellContext`t], 
+            $CellContext`a[$CellContext`t]}, $CellContext`sol]], \
+{$CellContext`t, 0, 60}, PlotRange -> {{0, 60}, {0, 5}}, 
+         PlotLegends -> {"T", "C", "B", "A"}, AxesLabel -> {"t", None}, 
+         ImageSize -> 400]), "Specifications" :> {
+        Style[
+        "Param\[EAcute]terek", 
+         12], {{$CellContext`rt$$, 1.71, 
+          "\!\(\*SubscriptBox[\(r\), \(T\)]\)"}, 0, 4, Appearance -> 
+         "Labeled"}, {{$CellContext`Kt$$, 1.61, 
+          "\!\(\*SubscriptBox[\(K\), \(T\)]\)"}, 0, 4, Appearance -> 
+         "Labeled"}, {{$CellContext`\[Delta]$$, 2.84, "\[Delta]"}, 0, 5, 
+         Appearance -> "Labeled"}, {{$CellContext`\[Mu]$$, 0.41, "\[Mu]"}, 0, 
+         4, Appearance -> 
+         "Labeled"}, {{$CellContext`\[Lambda]$$, 1.51, "\[Lambda]"}, 0, 4, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`rb$$, 1.81, 
+          "\!\(\*SubscriptBox[\(r\), \(B\)]\)"}, 0, 4, Appearance -> 
+         "Labeled"}, {{$CellContext`Kb$$, 1.23, 
+          "\!\(\*SubscriptBox[\(K\), \(B\)]\)"}, 0, 4, Appearance -> 
+         "Labeled"}, {{$CellContext`\[Theta]$$, 1.135, "\[Theta]"}, 0, 2, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`\[Sigma]$$, 0.295, "\[Sigma]"}, 0, 2, 
+         Appearance -> "Labeled"}, Delimiter, 
+        Style[
+        "Kezdeti \[EAcute]rt\[EAcute]kek", 
+         12], {{$CellContext`T0$$, 0.1, "\!\(\*SubscriptBox[\(T\), \(0\)]\)"},
+          0, 4, Appearance -> 
+         "Labeled"}, {{$CellContext`B0$$, 0.1, 
+          "\!\(\*SubscriptBox[\(B\), \(0\)]\)"}, 0, 4, Appearance -> 
+         "Labeled"}, 
+        Style[
+        "Kezdeti id\[ODoubleAcute]pontok", 
+         12], {{$CellContext`t0T$$, 0, 
+          "\!\(\*SubscriptBox[\(t\), \(0  T\)]\)"}, 0, 50, Appearance -> 
+         "Labeled"}, {{$CellContext`t0C$$, 10, 
+          "\!\(\*SubscriptBox[\(t\), \(0  C\)]\)"}, 0, 50, Appearance -> 
+         "Labeled"}, {{$CellContext`t0B$$, 20, 
+          "\!\(\*SubscriptBox[\(t\), \(0  B\)]\)"}, 0, 50, Appearance -> 
+         "Labeled"}, {{$CellContext`t0A$$, 30, 
+          "\!\(\*SubscriptBox[\(t\), \(0  A\)]\)"}, 0, 50, Appearance -> 
+         "Labeled"}, Delimiter, 
+        Style[
+        "WhenEvent", 12], {{$CellContext`dtC$$, 1.97, "C id\[ODoubleAcute]"}, 
+         0, 5, Appearance -> 
+         "Labeled"}, {{$CellContext`dqC$$, 0.58, "C mennyis\[EAcute]g"}, 0, 1,
+          Appearance -> 
+         "Labeled"}, {{$CellContext`dtA$$, 1.65, "A id\[ODoubleAcute]"}, 0, 5,
+          Appearance -> 
+         "Labeled"}, {{$CellContext`dqA$$, 0.972, "A mennyis\[EAcute]g"}, 0, 
+         1, Appearance -> "Labeled"}}, 
+      "Options" :> {
+       ControlPlacement -> {
+         Left, Left, Left, Left, Left, Left, Left, Left, Left, Left, Left, 
+          Left, Left, Right, Right, Right, Right, Right, Right, Right, Right, 
+          Right, Right}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{864., {127.1, 131.9}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.922800168971374*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"f333287d-dc3a-41ab-9058-18709541bf32"]
+}, {2}]]
+}, Open  ]]
+},
+WindowSize->{1152., 585.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+Magnification:>0.8 Inherited,
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"585f79a3-672d-4041-be25-772019723bd5"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 199, 4, 52, "Section",ExpressionUUID->"7fbb8464-b89a-477d-9203-1b57b1d92ad7"],
+Cell[CellGroupData[{
+Cell[804, 30, 22850, 540, 1030, "Input",ExpressionUUID->"dc728c8b-f839-4b18-ac7b-e91516ce1f49"],
+Cell[23657, 572, 13519, 256, 310, "Output",ExpressionUUID->"c6a96f7b-37c9-478b-8894-c4cf73ed20bf"]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37222, 834, 193, 3, 52, "Section",ExpressionUUID->"ab798198-6b22-4dd7-b253-1dc959c56338"],
+Cell[CellGroupData[{
+Cell[37440, 841, 13584, 341, 741, "Input",ExpressionUUID->"a2932099-34ab-4572-8c28-1038147d15b8"],
+Cell[51027, 1184, 9719, 189, 274, "Output",ExpressionUUID->"f333287d-dc3a-41ab-9058-18709541bf32"]
+}, {2}]]
+}, Open  ]]
+}
+]
+*)
+
